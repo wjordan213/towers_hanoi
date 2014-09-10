@@ -6,6 +6,13 @@
     this.$el = $el;
 
     this.fromTowerIdx = null;
+
+    this.$el.on(
+      "click",
+      "div.tower",
+      this.clickTower.bind(this)
+    );
+    this.render();
   };
 
   UI.prototype.clickTower = function (event) {
@@ -28,16 +35,6 @@
       this.$el.off("click");
       alert("Good work, you!");
     }
-  };
-
-  UI.prototype.play = function () {
-    this.$el.on(
-      "click",
-      "div.tower",
-      this.clickTower.bind(this)
-    );
-
-    this.render();
   };
 
   UI.prototype.render = function () {
