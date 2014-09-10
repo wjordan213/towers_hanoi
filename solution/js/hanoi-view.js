@@ -1,7 +1,7 @@
 (function () {
   var Hanoi = window.Hanoi = (window.Hanoi || {});
 
-  var UI = Hanoi.UI = function UI (game, $el) {
+  var View = Hanoi.View = function View (game, $el) {
     this.game = game;
     this.$el = $el;
 
@@ -15,7 +15,7 @@
     this.render();
   };
 
-  UI.prototype.clickTower = function (event) {
+  View.prototype.clickTower = function (event) {
     var clickedTowerIdx = parseInt($(event.currentTarget).data("tower"));
 
     if (this.fromTowerIdx == null) {
@@ -37,7 +37,7 @@
     }
   };
 
-  UI.prototype.render = function () {
+  View.prototype.render = function () {
     this.$el.empty();
 
     for (var towerIdx = 0; towerIdx < 3; towerIdx++) {
@@ -45,7 +45,7 @@
     };
   };
 
-  UI.prototype.renderTower = function (towerIdx) {
+  View.prototype.renderTower = function (towerIdx) {
     var $towerEl = $("<div>").addClass("tower").data("tower", towerIdx);
 
     if (this.fromTowerIdx == towerIdx) {
