@@ -1,0 +1,32 @@
+div.tower {
+  float: left;
+  border: 1px solid black;
+  height: 150px;
+  width: 300px;
+}
+
+div.tower.selected {
+  background-color: red;
+}
+
+div.disk {
+  margin: auto;
+  background-color: blue;
+  height: 50px;
+}
+
+div.disk.fake {
+  background-color: transparent;
+}
+
+div.disk-1 {
+  width: 100px;
+}
+
+div.disk-2 {
+  width: 200px;
+}
+
+div.disk-3 {
+  width: 300px;
+}
