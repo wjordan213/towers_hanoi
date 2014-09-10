@@ -39,13 +39,11 @@
   };
 
   UI.prototype.render = function () {
-    var ui = this;
-
     this.$el.empty();
 
-    _.times(3, function (towerIdx) {
-      ui.$el.append(ui.renderTower(towerIdx));
-    });
+    for (var towerIdx = 0; towerIdx < 3; towerIdx++) {
+      this.$el.append(this.renderTower(towerIdx));
+    };
   };
 
   UI.prototype.renderTower = function (towerIdx) {
@@ -55,17 +53,16 @@
       $towerEl.addClass("selected");
     }
 
-    var tower = this.game.towers[towerIdx];
-    _(tower).each(function (diskWidth) {
-      var disk = $("<div>").addClass("disk").addClass("disk-" + diskWidth);
-      $towerEl.prepend(disk);
+    this.game.towers[towerIdx].forEach(function (diskWidth) {
+      var $diskEl = $("<div>").addClass("disk").addClass("disk-" + diskWidth);
+      $towerEl.prepend($diskEl);
     });
 
-    _.times(3 - tower.length, function () {
+    while ($towerEl.children().length < 3) {
       // use a fake disk to force bottom alignment.
-      var fakeDisk = $("<div>").addClass("disk").addClass("fake");
-      $towerEl.prepend(fakeDisk);
-    });
+      var $fakeDisk = $("<div>").addClass("disk").addClass("fake");
+      $towerEl.prepend($fakeDisk);
+    };
 
     return $towerEl;
   };
