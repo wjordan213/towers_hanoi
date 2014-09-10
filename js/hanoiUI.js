@@ -1,5 +1,5 @@
-(function (root) {
-  var Hanoi = root.Hanoi = (root.Hanoi || {});
+(function () {
+  var Hanoi = window.Hanoi = (window.Hanoi || {});
 
   var UI = Hanoi.UI = function UI (game, $el) {
     this.game = game;
@@ -9,7 +9,7 @@
   };
 
   UI.prototype.clickTower = function (event) {
-    var clickedTowerIdx = parseInt($(event.currentTarget).attr("data-tower"));
+    var clickedTowerIdx = parseInt($(event.currentTarget).data("tower"));
 
     if (this.fromTowerIdx == null) {
       this.fromTowerIdx = clickedTowerIdx;
@@ -24,6 +24,8 @@
     this.render();
 
     if (this.game.isWon()) {
+      // remove click handler
+      this.$el.off("click");
       alert("Good work, you!");
     }
   };
@@ -47,23 +49,23 @@
   };
 
   UI.prototype.renderTower = function (towerIdx) {
-    var $towerEl = $("<div>").addClass("tower").attr("data-tower", towerIdx);
+    var $towerEl = $("<div>").addClass("tower").data("tower", towerIdx);
 
     if (this.fromTowerIdx == towerIdx) {
       $towerEl.addClass("selected");
     }
 
     this.game.towers[towerIdx].forEach(function (diskWidth) {
-      var $diskEl = $("<div>").addClass("disk").addClass("disk-" + diskWidth);
+      var $diskEl = $("<div>").addClass("disk disk-" + diskWidth);
       $towerEl.prepend($diskEl);
     });
 
     while ($towerEl.children().length < 3) {
       // use a fake disk to force bottom alignment.
-      var $fakeDisk = $("<div>").addClass("disk").addClass("fake");
+      var $fakeDisk = $("<div>").addClass("disk fake");
       $towerEl.prepend($fakeDisk);
     };
 
     return $towerEl;
   };
-})(this);
+})();

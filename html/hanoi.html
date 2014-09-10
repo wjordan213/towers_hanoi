@@ -12,9 +12,11 @@
     <div class="hanoi"></div>
 
     <script>
-      var game = new Hanoi.Game();
-      var UI = new Hanoi.UI(game, $("div.hanoi"));
-      UI.play();
+      (function () {
+        var game = new Hanoi.Game();
+        var UI = new Hanoi.UI(game, $("div.hanoi"));
+        UI.play();
+      })();
     </script>
  </body>
 </html>
