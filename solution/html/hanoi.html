@@ -9,12 +9,12 @@
 
   <body>
     <h1>Hanoi</h1>
-    <div class="hanoi"></div>
+    <figure class="hanoi"></figure>
 
     <script>
-      (function () {
-        new Hanoi.View(new Hanoi.Game(), $("div.hanoi"));
-      })();
+      $(function () {
+        new Hanoi.View(new Hanoi.Game(), $(".hanoi"));
+      });
     </script>
  </body>
 </html>

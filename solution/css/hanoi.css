@@ -1,32 +1,73 @@
-div.tower {
+html, body, figure, figcaption, ul, li, h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  text-align: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+body {
+  font-family: sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 60px;
+  margin: 30px;
+}
+
+.hanoi {
+  margin: 30px auto;
+  width: 600px;
+}
+
+ul {
   float: left;
-  border: 1px solid black;
-  height: 150px;
-  width: 300px;
+  width: 180px;
+  padding: 0 0 10px 0;
+  border-bottom: 10px solid black;
+  cursor: pointer;
 }
 
-div.tower.selected {
-  background-color: red;
+ul:hover {
+  border-color: blue;
 }
 
-div.disk {
-  margin: auto;
-  background-color: blue;
+ul.selected {
+  border-color: red;
+}
+
+ul:nth-child(2) {
+  margin: 0 20px;
+}
+
+li {
+  width: 0px;
+  margin: 10px auto;
   height: 50px;
+  background: gray;
+  border-radius: 25px;
 }
 
-div.disk.fake {
-  background-color: transparent;
+li.disk-1 {
+  width: 60px;
 }
 
-div.disk-1 {
-  width: 100px;
+li.disk-2 {
+  width: 120px;
 }
 
-div.disk-2 {
-  width: 200px;
-}
-
-div.disk-3 {
-  width: 300px;
+li.disk-3 {
+  width: 180px;
 }

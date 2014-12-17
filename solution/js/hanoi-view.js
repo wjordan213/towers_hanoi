@@ -9,7 +9,7 @@
 
     this.$el.on(
       "click",
-      "div.tower",
+      "ul",
       this.clickTower.bind(this)
     );
     this.render();
@@ -31,7 +31,7 @@
     this.render();
 
     if (this.game.isWon()) {
-      // remove click handler
+      // Remove click handler.
       this.$el.off("click");
       alert("Good work, you!");
     }
@@ -39,6 +39,8 @@
 
   View.prototype.render = function () {
     this.$el.empty();
+    // We need this class to clear our floated towers.
+    this.$el.addClass("group");
 
     for (var towerIdx = 0; towerIdx < 3; towerIdx++) {
       this.$el.append(this.renderTower(towerIdx));
@@ -46,20 +48,20 @@
   };
 
   View.prototype.renderTower = function (towerIdx) {
-    var $towerEl = $("<div>").addClass("tower").data("tower", towerIdx);
+    var $towerEl = $("<ul>").data("tower", towerIdx);
 
     if (this.fromTowerIdx == towerIdx) {
       $towerEl.addClass("selected");
     }
 
     this.game.towers[towerIdx].forEach(function (diskWidth) {
-      var $diskEl = $("<div>").addClass("disk disk-" + diskWidth);
+      var $diskEl = $("<li>").addClass("disk-" + diskWidth);
       $towerEl.prepend($diskEl);
     });
 
     while ($towerEl.children().length < 3) {
-      // use a fake disk to force bottom alignment.
-      var $fakeDisk = $("<div>").addClass("disk fake");
+      // Use a fake disk to force bottom alignment.
+      var $fakeDisk = $("<li>");
       $towerEl.prepend($fakeDisk);
     };
 
