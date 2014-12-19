@@ -71,3 +71,13 @@ li.disk-2 {
 li.disk-3 {
   width: 180px;
 }
+
+.game-over ul {
+  cursor: default;
+  border-color: black;
+}
+
+.game-over li {
+  background: green;
+}
+
