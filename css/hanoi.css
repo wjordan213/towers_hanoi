@@ -1,0 +1,71 @@
+html, body, main, ul, li {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font: inherit;
+}
+
+ul, li {
+
+  list-style: none;
+}
+
+body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.main {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+.view {
+  width: 888px;
+  padding: 0;
+  margin: 0 auto;
+  border: 8px solid black
+}
+
+.view:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.disc {
+  position: relative;
+  bottom: 0;
+  height: 60px;
+  margin: 0 auto;
+}
+
+.pile {
+  position: relative;
+  float: left;
+  width: 290px;
+  height: 300px;
+  background: #eee;
+  border: 3px solid #222;
+  transform: rotate(180deg);
+}
+
+.one {
+  background: #ccc;
+  width: 150px;
+}
+
+.two {
+  background: #999;
+  width: 200px;
+}
+
+.three {
+  background: #555;
+  width: 260px;
+}
