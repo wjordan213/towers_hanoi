@@ -39,12 +39,10 @@
   View.prototype.makeMove = function ($pile) {
     if (fromPile === 0) {
       fromPile = $pile.attr("id") ;
-      console.log(fromPile);
+      $pile.toggleClass('clicked');
     }
     else {
       var result = this.game.move(fromPile - 1, $pile.attr("id") - 1);
-      console.log(fromPile);
-      console.log($pile.attr("id") - 1);
       if (result) {
         this.render();
         this.handleWin();
@@ -52,6 +50,7 @@
         alert("invalid move");
       }
 
+      $('li[id="' + fromPile +'"]').toggleClass('clicked');
       this.game.print();
       fromPile = 0;
     }
@@ -75,9 +74,6 @@
     }
 
     this.game.print();
-    // $("<section>").addClass("disc one").appendTo("#1");
-    // $("<section>").addClass("disc two").appendTo("#1");
-    // $("<section>").addClass("disc three").appendTo("#1");
     this.render();
   };
 })();

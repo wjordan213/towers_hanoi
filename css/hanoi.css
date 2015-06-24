@@ -2,7 +2,7 @@ html, body, main, ul, li {
   margin: 0;
   border: 0;
   padding: 0;
-  font: inherit; 
+  font: inherit;
 }
 
 ul, li {
@@ -68,4 +68,8 @@ body {
 .three {
   background: #555;
   width: 260px;
+}
+
+.clicked {
+  background: #aaa;
 }
