@@ -63,8 +63,8 @@
 
   View.prototype.handleWin = function () {
     if (this.game.isWon()) {
-      $('.main').append($('<div class="message"><p>You Won!</p><br><button>New Game</button></div>'));
-      $('button').on('click', function(event) {
+      $('.main').append($('<div class="message"><p>You Won!</p><br><button class="newGame">New Game</button></div>'));
+      $('button.newGame').on('click', function(event) {
         event.preventDefault();
         $('button').off();
         $('div.message').remove();

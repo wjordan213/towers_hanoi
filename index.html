@@ -8,14 +8,30 @@
   <body>
 
     <main class="main">
+      <div class="start">
+        <h1>Towers of Hanoi</h1>
+        <h2>How to play:</h2>
+        <ol start="1">
+          <li>1) Click on the box to remove a disc from</li>
+          <li>2) Click on the box you would like to add a disc to</li>
+          <li>3) a larger disc cannot be added to the top of a smaller disc</li>
+          <li>4) The goal is to stack all the discs in another box in the same order as the discs were in the beginning</li>
+        </ol>
+        <button class="startGame">Click to Play!</button>
+      </div>
     </main>
 
     <script src="./js/jquery-2.1.4.js"></script>
     <script src="./hanoi-core-solution/hanoi-core.js"></script>
     <script src="./js/hanoi-view.js"></script>
     <script>
-      var game = new Games.Game();
-      var view = new Hanoi.View(game, $(".main"));
+      $('button.startGame').on('click', function(event) {
+        event.preventDefault();
+        $('.main').html('');
+        var game = new Games.Game();
+        var view = new Hanoi.View(game, $(".main"));
+        $('button').off();
+      }.bind(this))
     </script>
 
   </body>

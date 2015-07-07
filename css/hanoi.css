@@ -101,7 +101,37 @@ div.message p {
   color: #fff;
 }
 
-button {
+button.newGame {
   display: block;
   margin: 0 auto;
+}
+
+div.start {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #ccc;
+  height: 322px;
+  transform: translateY(-50%);
+}
+
+h1 {
+  display: block;
+  width: 200px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-left: 300px;
+}
+
+.start ol, button.startGame {
+  margin-left: 300px;
+}
+
+.start ol li {
+  margin-top: 10px;
 }
