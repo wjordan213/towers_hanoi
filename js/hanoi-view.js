@@ -32,6 +32,10 @@
 
   View.prototype.bindEvents = function () {
     this.$el.on("click", ".pile", function(event) {
+      if (Hanoi.denied) {
+        Hanoi.denied = false;
+        $('.nope').remove();
+      }
       this.makeMove($(event.currentTarget));
     }.bind(this));
   };
@@ -47,7 +51,8 @@
         this.render();
         this.handleWin();
       } else {
-        alert("invalid move");
+        $('.main').prepend('<p class="nope">Not allowed</p>');
+        Hanoi.denied = true;
       }
 
       $('li[id="' + fromPile +'"]').toggleClass('clicked');
@@ -58,9 +63,14 @@
 
   View.prototype.handleWin = function () {
     if (this.game.isWon()) {
-      alert("You win!!");
-      this.game = new Games.Game();
-      this.render();
+      $('.main').append($('<div class="message"><p>You Won!</p><br><button>New Game</button></div>'));
+      $('button').on('click', function(event) {
+        event.preventDefault();
+        $('button').off();
+        $('div.message').remove();
+        this.game = new Games.Game();
+        this.render();
+      }.bind(this));
     }
   };
 

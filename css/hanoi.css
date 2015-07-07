@@ -73,3 +73,35 @@ body {
 .clicked {
   background: #aaa;
 }
+
+.nope {
+  position: absolute;
+  top: -20px;
+  left: calc(50% - 20px);
+  margin: 0 auto;
+  color: red;
+}
+
+div.message {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ccc;
+}
+
+div.message p {
+  margin: 0 auto;
+  margin-top: 100px;
+  display: block;
+  width: 107px;
+  text-align: center;
+  font-size: 25px;
+  color: #fff;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+}

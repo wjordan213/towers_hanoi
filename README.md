@@ -1,5 +1,8 @@
 #Towers of Hanoi
 
+* [Main site][Main]
+[Main]: http://www.harrisjordan.info/towers_hanoi/
+
 ## Description
 Towers of Hanoi for the browser
 
